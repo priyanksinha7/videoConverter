@@ -1,0 +1,23 @@
+#comments
+{
+    font-family:cursive
+
+}
+h5
+{
+    color:rgb(100, 156, 121);
+    justify-content: center;
+    align-self: center;
+    padding-left: 150px;
+    margin-top: 10px;
+}
+footer
+{
+    align-items: center;
+    justify-content: center;
+    margin-top: 100px;
+    border-top: 3px;
+    border-style: solid;
+    border-color:#d7d7d7;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}

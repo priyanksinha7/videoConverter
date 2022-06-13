@@ -1,0 +1,23 @@
+#myNAV
+{
+    border: 4px;
+    border-style: solid;
+    border-color:#d7d7d7;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+#img
+{
+    height: 40px;
+    width: 170px;
+}
+#toggle
+{
+    border: 0px;
+    height: 40px;
+    width: 45px;
+    padding-right: 50px;
+}
+#con1
+{
+    margin: 0%;
+}
