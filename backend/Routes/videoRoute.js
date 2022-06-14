@@ -5,5 +5,4 @@ const router=express.Router();
 
 
 router.route('/videos/new').post(uploadVideo);
-
 module.exports=router;
