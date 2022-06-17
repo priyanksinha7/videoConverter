@@ -1,11 +1,18 @@
-#h2
+#h21
 {
-    font-family: 'Kdam Thmor Pro', sans-serif;
-    margin-top: 150px;
-
-    
+    font-family:monospace;
+    margin-top: 50px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
-#result
+#h22
 {
+    font-family: monospace;
+    margin-top: 40px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+#h23
+{
+    font-family: monospace;
+    margin-top: 40px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }

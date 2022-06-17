@@ -3,7 +3,7 @@ import './myForm.css';
 import {useState} from "react"
 import axios from "axios";
 const querystring = require('querystring');
-function Myform()
+function Myform(props)
 {
 
   const [myVideo,setmyVideo] = useState("");
@@ -18,20 +18,29 @@ function Myform()
           myVideo
       }
     )
-          axios(
+      axios(
         {
           method : "post",
-          url : "http://localhost:5000/api/v1/videos/new",
-          data: bodyForm
+           url : "http://localhost:5000/api/v1/videos/new",
+          data: bodyForm,
         }
-      )
-      
+      ).then(res=>
+        {
+          console.log(res.data.payload);
+          props.setMean(res.data.payload.mean);
+          props.setMin(res.data.payload.min);
+          props.setMax(res.data.payload.max);
+        })
+        .catch((e)=>
+        {
+          console.log(e);
+        })
   };
 
    return(
        <Container id="card">
        <h2 id="myh2">
-         Submit Your File here
+        Submit Your File here
        </h2>
        <form onSubmit={handleSubmit}>
        <div id="upload">
