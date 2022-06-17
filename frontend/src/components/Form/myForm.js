@@ -7,7 +7,7 @@ function Myform(props)
 {
 
   const [myVideo,setmyVideo] = useState("");
-  const [myQuality,setmyQuality] = useState("");
+  const [myQuality,setmyQuality] = useState("VMAF");
 
 
 
@@ -15,7 +15,8 @@ function Myform(props)
     e.preventDefault();
     const bodyForm=querystring.stringify(
       {
-          myVideo
+          myVideo,
+          myQuality
       }
     )
       axios(
@@ -48,7 +49,7 @@ function Myform(props)
         type="file" 
         name="myVideo" 
         accept=" video/*" 
-        onChange={(e)=>setmyVideo(e.target.value)} />
+        onChange={(e)=>setmyVideo(e.target.value)} required />
         </div>
         <Row id="form">
     <label id="myh2">SELECT THE QUALITY EVALUATION STANDARD</label>
@@ -57,10 +58,10 @@ function Myform(props)
       id="dropdown"
       type="text"
        name="quality"
-       onSelect={(e)=>setmyQuality(e.target.value)}>
-      <option>PSNR</option>
-      <option>VMAF</option>
-      <option>SSIM</option>
+       onChange={(e)=>setmyQuality(e.target.value)} >
+       <option value="VMAF">VMAF</option>
+      <option value="PSNR">PSNR</option>
+      <option value="SSIM">SSIM</option>
     </select>
      </Row> 
 
