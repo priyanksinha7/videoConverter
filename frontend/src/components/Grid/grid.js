@@ -5,9 +5,10 @@ import Result from "../Result/result";
 import './grid.css';
 
 function Grid(){
-    const [mean,setMean]=useState("");
-    const [min,setMin]=useState("");
-    const [max,setMax]=useState("");
+    const [mean,setMean]=useState("0.00");
+    const [min,setMin]=useState("0.00");
+    const [max,setMax]=useState("0.00");
+    const [type,setmyType]=useState("VMAF");
     let score=
     {
        mean,
@@ -19,6 +20,7 @@ function Grid(){
         setMax,
         setMean,
         setMin,
+        setmyType
     };
     return(
         <div id="grid">
@@ -28,7 +30,7 @@ function Grid(){
                   <Myform {...setScore}/>
               </Col>
               <Col sm={4} id="resultcol"> 
-               <h2 id="scoreHeader"><u>SCORES</u></h2>
+               <h2 id="scoreHeader"><u>SCORES@{type}</u></h2>
              <Result {...score}/>
               </Col> 
              </Row>

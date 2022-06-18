@@ -58,7 +58,7 @@ function Myform(props)
       id="dropdown"
       type="text"
        name="quality"
-       onChange={(e)=>setmyQuality(e.target.value)} >
+       onChange={(e)=>{setmyQuality(e.target.value);props.setmyType(e.target.value)}} >
        <option value="VMAF">VMAF</option>
       <option value="PSNR">PSNR</option>
       <option value="SSIM">SSIM</option>
