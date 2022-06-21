@@ -2,28 +2,31 @@ import { Container,Row,Button} from "react-bootstrap";
 import './myForm.css';
 import {useState} from "react"
 import axios from "axios";
-const querystring = require('querystring');
 function Myform(props)
 {
 
-  const [myVideo,setmyVideo] = useState("");
+  const [myVideo ,setmyVideo] = useState();
+  const [myVideoName,setmyVideoName] = useState("");
   const [myQuality,setmyQuality] = useState("VMAF");
 
-
+   const uploadFile=async(e)=>
+   {
+      setmyVideo(e.target.files[0]);
+      setmyVideoName(e.target.files[0].name);
+   }
 
   let handleSubmit = async (e) => {
     e.preventDefault();
-    const bodyForm=querystring.stringify(
-      {
-          myVideo,
-          myQuality
-      }
-    )
+    const bodyForm=new FormData();
+    bodyForm.append("myVideo",myVideo);
+    bodyForm.append("myVideoName",myVideoName);
+    bodyForm.append("myQuality",myQuality);
+     
       axios(
         {
           method : "post",
            url : "http://localhost:5000/api/v1/videos/new",
-          data: bodyForm,
+          data: bodyForm
         }
       ).then(res=>
         {
@@ -37,19 +40,18 @@ function Myform(props)
           console.log(e);
         })
   };
-
    return(
        <Container id="card">
        <h2 id="myh2">
         Submit Your File here
        </h2>
-       <form onSubmit={handleSubmit}>
+       <form  encType="multipart/form-data" onSubmit={handleSubmit}>
        <div id="upload">
         <input id="file"
         type="file" 
         name="myVideo" 
         accept=" video/*" 
-        onChange={(e)=>setmyVideo(e.target.value)} required />
+        onChange={uploadFile} required />
         </div>
         <Row id="form">
     <label id="myh2">SELECT THE QUALITY EVALUATION STANDARD</label>
@@ -65,7 +67,9 @@ function Myform(props)
     </select>
      </Row> 
 
-<Button variant="secondary" type="submit">Submit</Button>
+<Button variant="secondary" type="submit" onClick={()=>{ props.setMean("0.00");
+    props.setMax("0.00");
+    props.setMin("0.00");}}>Submit</Button>
 </form>
        </Container>
    )

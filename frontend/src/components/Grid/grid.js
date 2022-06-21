@@ -3,7 +3,7 @@ import { Container, Row,Col } from "react-bootstrap";
 import Myform from "../Form/myForm";
 import Result from "../Result/result";
 import './grid.css';
-
+import {SpinnerDiamond} from "spinners-react"
 function Grid(){
     const [mean,setMean]=useState("0.00");
     const [min,setMin]=useState("0.00");
@@ -37,5 +37,7 @@ function Grid(){
          </Container>
         </div>
     )
+    
+        
 }
 export default Grid;
